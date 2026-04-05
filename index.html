@@ -18,7 +18,7 @@
         button { width: 100%; background-color: var(--uber-black); color: white; padding: 15px; border: none; border-radius: 4px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 20px; }
         button:disabled { background-color: #ccc; cursor: not-allowed; }
         #success-msg { display: none; background: #d4edda; color: #155724; padding: 20px; border-radius: 8px; text-align: center; font-weight: bold; }
-        .error-hint { color: #dc3545; font-size: 12px; margin-top: 4px; }
+        .g-recaptcha { margin: 20px 0; }
     </style>
 </head>
 <body>
@@ -36,38 +36,34 @@
     <form id="nuber-form">
         <h2>Request a Ride</h2>
         
-        <input type="hidden" name="_to" value="fnunes97@gmail.com">
-
         <div class="form-group">
             <label>Pickup Location</label>
-            <input type="text" name="pickup" data-fs-field required>
-            <span class="error-hint" data-fs-error="pickup"></span>
+            <input type="text" name="pickup" required>
         </div>
 
         <div class="form-group">
             <label>Destination</label>
-            <input type="text" name="destination" data-fs-field required>
-            <span class="error-hint" data-fs-error="destination"></span>
+            <input type="text" name="destination" required>
         </div>
 
         <div class="row">
             <div class="form-group" style="flex: 2;">
                 <label>Pickup Date & Time</label>
-                <input type="datetime-local" name="pickup_time" data-fs-field required>
+                <input type="datetime-local" name="pickup_time" required>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group" style="flex: 1;">
                 <label>Passengers</label>
-                <select name="passengers" data-fs-field>
-                    <option>1</option><option>2</option><option>3</option><option>4+</option>
+                <select name="passengers">
+                    <option>1</option><option>2</option><option>3</option>
                 </select>
             </div>
             <div class="form-group" style="flex: 1;">
                 <label>Bags</label>
-                <select name="bags" data-fs-field>
-                    <option>0</option><option>1</option><option>2</option><option>3+</option>
+                <select name="bags">
+                    <option>0</option><option>1</option><option>2</option>
                 </select>
             </div>
         </div>
@@ -76,27 +72,28 @@
         
         <div class="form-group">
             <label>Your Name</label>
-            <input type="text" name="rider_name" data-fs-field required>
+            <input type="text" name="rider_name" required>
         </div>
 
         <div class="form-group">
             <label>Your Email</label>
-            <input type="email" name="email" data-fs-field required>
-            <span class="error-hint" data-fs-error="email"></span>
+            <input type="email" name="email" required>
         </div>
 
         <div class="form-group">
             <label>Phone Number</label>
-            <input type="tel" name="phone" data-fs-field required>
+            <input type="tel" name="phone" required>
         </div>
 
+        <div class="g-recaptcha" data-sitekey="6Lfs_jEaAAAAAI7S9N_056xXv499vUsh9pC0_6Z1"></div>
+
         <button type="submit" data-fs-submit-btn>Book Nüber Now</button>
-        <div style="text-align: center; margin-top: 10px;" data-fs-error></div>
     </form>
 </div>
 
 <footer>&copy; 2026 Nüber Technologies Inc.</footer>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
   window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
   formspree('initForm', { 
