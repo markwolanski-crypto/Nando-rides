@@ -10,7 +10,17 @@
         header { background-color: var(--uber-black); color: var(--uber-white); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 28px; font-weight: bold; letter-spacing: -1px; }
         .container { max-width: 500px; margin: 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-height: 400px; }
-        h2 { margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        
+        .profile-pic {
+            display: block;
+            max-width: 180px;
+            margin: 0 auto 20px;
+            border-radius: 12px; /* Slightly rounded corners for a modern look */
+            border: 3px solid var(--uber-black);
+            object-fit: cover;
+        }
+
+        h2 { margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; text-align: center; }
         .form-group { margin-bottom: 15px; }
         label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
         input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
@@ -18,8 +28,8 @@
         button { width: 100%; background-color: var(--uber-black); color: white; padding: 15px; border: none; border-radius: 4px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 20px; }
         button:disabled { background-color: #ccc; cursor: not-allowed; }
         #success-msg { display: none; background: #d4edda; color: #155724; padding: 20px; border-radius: 8px; text-align: center; font-weight: bold; }
-        /* Ensures the captcha doesn't collapse the form while loading */
         .g-recaptcha { margin: 20px 0; min-height: 78px; }
+        footer { text-align: center; padding: 20px; color: #888; font-size: 12px; }
     </style>
 </head>
 <body>
@@ -35,6 +45,8 @@
     </div>
 
     <form id="nuber-form">
+        <img src="1775406216445.png" alt="Nando" class="profile-pic">
+
         <h2>Request a Ride</h2>
         
         <div class="form-group">
@@ -102,7 +114,6 @@
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 <script>
-  // Initialize Formspree after the page loads
   window.addEventListener('load', function() {
     window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
     formspree('initForm', { 
